@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://p0d048uqjgu8"]
+
+[ext_resource type="TileSet" uid="uid://dx4m4lp25ixp4" path="res://asset/ground/grassground1.tres" id="1_545ej"]
+[ext_resource type="Script" uid="uid://b4yislsbsce7m" path="res://map/block/block_base.gd" id="1_rn725"]
+
+[node name="BaseMap" type="TileMapLayer"]
+tile_set = ExtResource("1_545ej")
+script = ExtResource("1_rn725")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bshlvn7jvgwpb"]
+
+[ext_resource type="Script" uid="uid://m8tovav1k3wq" path="res://units/base_unit/base_unit.gd" id="1_ct6mi"]
+[ext_resource type="Texture2D" uid="uid://btr4t6vf2qiq7" path="res://icon.svg" id="2_oey5r"]
+[ext_resource type="Script" uid="uid://c02r8axcf2pb8" path="res://units/base_unit/task_list.gd" id="3_oey5r"]
+[ext_resource type="Script" uid="uid://dnk4oiyjvsjer" path="res://units/base_unit/area_2d.gd" id="3_p7025"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7025"]
+size = Vector2(128, 128)
+
+[node name="BaseUnit" type="Node2D"]
+script = ExtResource("1_ct6mi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 345)
+texture = ExtResource("2_oey5r")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_p7025")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(573, 345)
+shape = SubResource("RectangleShape2D_p7025")
+
+[node name="task_list" type="Node2D" parent="."]
+light_mask = 0
+script = ExtResource("3_oey5r")
+
+[node name="Timer_list" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="Timer_list"]
+autostart = true
+
+[node name="WanderTimer" type="Timer" parent="Timer_list"]
+
+[connection signal="task_list_initial" from="." to="task_list" method="_on_base_unit_task_list_initial"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="unit_clicked" from="Area2D" to="task_list" method="_on_area_2d_unit_clicked"]
+[connection signal="task_dict_return" from="task_list" to="." method="_on_task_list_task_dict_return"]
+[connection signal="timeout" from="Timer_list/Timer" to="task_list" method="_on_timer_timeout"]

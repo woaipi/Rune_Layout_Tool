@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cksagxukfshcn"]
+
+[ext_resource type="Script" uid="uid://txefod30j7ax" path="res://interface/main_interface.gd" id="1_xt8tg"]
+
+[node name="Main" type="Node2D" groups=["block&grid"]]
+script = ExtResource("1_xt8tg")
+
+[node name="StartButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "新建游戏"
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "游戏设置"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "退出游戏"
+
+[node name="ArchiveSelectButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "存档选择"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
